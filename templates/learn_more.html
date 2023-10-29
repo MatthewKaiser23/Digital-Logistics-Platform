@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Project Description</title>
+</head>
+
+<body>
+
+    <!-- nav bar -->
+
+    <nav class="fixed w-full bg-zinc-800 " style="z-index: 9999;">
+        <div class="mx-auto max-w-2/3 py-5">
+            <div class="relative flex h-16 items-center justify-between px-6">
+                <div class="flex items-center justify-center sm:items-stretch justify-start text-white">
+                    <a id="homePage" class="flex flex-shrink-0 items-center text-2xl cursor-pointer">
+                        Cape Town Winery
+                    </a>
+                </div>
+                <div class="flex items-center hidden sm:block">
+                    <button
+                        class="py-4 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                        id="bookNowButton">Book Now</button>
+                </div>
+                <div class="flex items-center sm:hidden">
+                    <!-- mobile menu button -->
+                    <button type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        id="mobile-menu-button" aria-expanded="false">
+                        <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- dropdown menu -->
+
+        <div class="hidden sm:hidden" id="mobile-menu">
+            <div class="bg-zinc-800 py-2 w-full">
+                <a id="bookNowButtonMobile" class="text-white block hover:bg-zinc-600 px-4 py-2 cursor-pointer">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- project description -->
+
+    <div class="flex flex-col pt-56 w-full items-center mb-20">
+        <h1 class="text-4xl lg:text-7xl mb-20 text-center">What this project is about:</h1>
+        <ul class="list-disc ml-6 w-3/4">
+            <li class="text-xl pb-10">This project aims to create a comprehensive digital logistics platform designed to
+                manage the global delivery of South African wine. The project not only addresses the logistical
+                complexities of global wine distribution but also contributes to the enhancement of the wine industry's
+                efficiency and customer satisfaction. This endeavour involves a sophisticated computational process that
+                will result in the generation of a rich dataset. This dataset will enable us to achieve several key
+                objectives. </li>
+            <li class="text-xl pb-10">The project's core functionality will be realized through a computational process
+                that encompasses web scraping, the manipulation of airline and road traffic APIs, and data collection on
+                weather conditions in the chosen cities. Additionally, big data computation will play a significant
+                role, utilizing the power of the Hadoop and Spark ecosystems to compute optimal routes from airports to
+                hotels and restaurants and generate insightful statistics pertaining to the wine delivery system.</li>
+        </ul>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="bg-zinc-200 h-60 flex flex-col items-center justify-center">
+        <h2 class="text-xl md:text-4xl font-bold text-center py-10">Cape Town Winery
+        </h2>
+    </foooter>
+
+    <!-- scripts -->
+
+    <script src="{{ url_for('static', filename='js/mobile-menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bookings.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+
+</body>

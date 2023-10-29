@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <title>Admin</title>
+</head>
+
+<body>
+
+    <!-- nav bar -->
+
+    <nav class="fixed w-full bg-zinc-800 " style="z-index: 9999;">
+        <div class="mx-auto max-w-2/3 py-5">
+            <div class="relative flex h-16 items-center justify-between px-6">
+                <div class="flex items-center justify-center sm:items-stretch justify-start text-white">
+                    <a class="flex flex-shrink-0 items-center text-2xl cursor-pointer" id="homePage">
+                        Cape Town Winery
+                    </a>
+                </div>
+                <div class="flex items-center hidden sm:block">
+                    <button
+                        class="py-4 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                        id="bookNowButton">Book Now</button>
+                </div>
+                <div class="flex items-center sm:hidden">
+                    <!-- mobile menu button -->
+                    <button type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        id="mobile-menu-button" aria-expanded="false">
+                        <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- dropdown menu -->
+
+        <div class="hidden sm:hidden" id="mobile-menu">
+            <div class="bg-zinc-800 py-2 w-full" id="bookNowButtonMobile">
+                <a class="text-white block hover:bg-zinc-600 px-4 py-2 cursor-pointer">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- grid of stored information -->
+
+    <div class="px-12 mx-auto pt-56">
+        <div id="admin"></div>
+    </div>
+
+    <!-- map of route from airport to restaurant -->
+
+    <div class="w-full mt-12 lg:mt-0">
+        <div
+            class="flex flex-col lg:flex-row items-center justify-center lg:h-screen w-full px-12 lg:w-4/5 mx-auto gap-10">
+            <div id="map" class="w-full h-96 h-2/3 lg:h-3/4 pb-20 lg:pb-0 z-1"></div>
+            <div class=" text-black w-full mb-10 lg:mb-0">
+                <h2 class=" text-3xl lg:text-5xl font-bold mb-8 pt- lg:pt-0" id="route"></h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- scripts -->
+
+    <script src="{{ url_for('static', filename='js/admin-data.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/mobile-menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bookings.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+</body>
+
+</html>
